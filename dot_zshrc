@@ -142,7 +142,6 @@ git_diff_light() {
 # Convenient aliases for light background git commands
 alias gdl='git_diff_light'
 
-
 . "$HOME/.local/bin/env"
 
 # Set up fzf key bindings and fuzzy completion
@@ -157,8 +156,6 @@ export PATH=~/.npm-global/bin:$PATH
 # Find your latest build-tools version
 BUILD_TOOLS=$(ls -1 $ANDROID_SDK_HOME/build-tools | sort -V | tail -1)
 export PATH="$HOME/Library/Android/sdk/build-tools/$BUILD_TOOLS:$PATH"
-
-
 
 # Added by Antigravity
 export PATH="/Users/hegazy/.antigravity/antigravity/bin:$PATH"
