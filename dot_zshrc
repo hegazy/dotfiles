@@ -106,7 +106,7 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
 # Secrets are loaded from ~/.zsh_secrets
 [ -f ~/.zsh_secrets ] && source ~/.zsh_secrets
 export ANDROID_SDK_HOME="/Users/hegazy/Library/Android/sdk"
-export ANDROID_HOME="/Users/hegazy/Library/Android/sdk"
+export ANDROID_HOME=ANDROID_SDK_HOME
 
 # Added by Windsurf
 export PATH="/Users/hegazy/.codeium/windsurf/bin:$PATH"
