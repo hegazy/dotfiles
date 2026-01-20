@@ -175,3 +175,6 @@ function y() {
 export EDITOR="nvim"
 alias y='yazi'
 
+# oh-my-posh
+eval "$(oh-my-posh init zsh)"
+
