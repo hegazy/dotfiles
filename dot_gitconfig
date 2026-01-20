@@ -1,0 +1,41 @@
+# This is Git's per-user configuration file.
+[user]
+	email = ahmed.hegazy1192@gmail.com
+# Please adapt and uncomment the following lines:
+#	name = Ahmed Hegazy
+#	email = ahmed.hegazy1192@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[include]
+    path = /Users/hegazy/Developer/github/delta/themes.gitconfig
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    #features = mirthful-willow
+    navigate = true  # use n and N to move between diff sections
+    syntax-theme = 1337
+    #light = true
+    #dark = true
+    side-by-side = true
+
+[merge]
+    conflictstyle = zdiff3
+
+[push]
+    default = current
+
+[branch]
+	sort = -committerdate
+[rebase]
+	updateRefs = true
+[rerere]
+	enabled = true
+[tag]
+	sort = -refname
