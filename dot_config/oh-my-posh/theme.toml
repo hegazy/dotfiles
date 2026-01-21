@@ -1,0 +1,75 @@
+version = 4
+final_space = true
+
+[upgrade]
+  source = 'cdn'
+  interval = '168h'
+  auto = false
+  notice = false
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    template = '  '
+    foreground = '#100e23'
+    powerline_symbol = ''
+    background = '#ffe9aa'
+    type = 'root'
+    style = 'powerline'
+
+  [[blocks.segments]]
+#template = ' {{ .UserName }}@{{ .HostName }} '
+    template = ' {{ if not (and (eq .UserName "hegazy") (hasPrefix .HostName "Mac")) }} {{ .UserName }}@{{ .HostName }} {{ end }} '
+    foreground = '#100e23'
+    powerline_symbol = ''
+    background = '#ffffff'
+    type = 'session'
+    style = 'powerline'
+
+  [[blocks.segments]]
+    template = ' {{ .Path }} '
+    foreground = '#100e23'
+    powerline_symbol = ''
+    background = '#91ddff'
+    type = 'path'
+    style = 'powerline'
+
+    [blocks.segments.options]
+      folder_icon = ''
+      folder_separator_icon = '  '
+      home_icon = ''
+      style = 'agnoster'
+
+  [[blocks.segments]]
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = ' {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} '
+    foreground = '#193549'
+    powerline_symbol = ''
+    background = '#95FFA5'
+    type = 'git'
+    style = 'powerline'
+    background_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}#FFF59D{{ end }}', '{{ if and (gt .Ahead 0) (gt .Behind 0) }}#ff4500{{ end }}', '{{ if gt .Ahead 0 }}#95FFA5{{ end }}', '{{ if gt .Behind 0 }}#95FFA5{{ end }}']
+
+    [blocks.segments.options]
+      branch_template = '{{ trunc 25 .Branch }}'
+      fetch_status = true
+      fetch_upstream_icon = true
+
+  [[blocks.segments]]
+    template = '  {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} '
+    foreground = '#100e23'
+    powerline_symbol = ''
+    background = '#906cff'
+    type = 'python'
+    style = 'powerline'
+
+  [[blocks.segments]]
+    template = ' {{ reason .Code }} '
+    foreground = '#ffffff'
+    powerline_symbol = ''
+    background = '#ff8080'
+    type = 'status'
+    style = 'powerline'
