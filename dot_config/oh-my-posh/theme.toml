@@ -57,6 +57,11 @@ final_space = true
       branch_template = '{{ trunc 25 .Branch }}'
       fetch_status = true
       fetch_upstream_icon = true
+    [blocks.segments.options.mapped_branches]
+      "feat/*" = "🚀 "
+      "feature/*" = "🚀 "
+      "fix/*" = "🐛 "
+
 
   [[blocks.segments]]
     template = '  {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} '
