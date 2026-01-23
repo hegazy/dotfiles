@@ -17,11 +17,12 @@
 
 [delta]
     #features = mirthful-willow
+    features = mellow-barbet
     navigate = true  # use n and N to move between diff sections
-    syntax-theme = 1337
+    #syntax-theme = 1337
     #light = true
     #dark = true
-    side-by-side = true
+    #side-by-side = true
 
 [merge]
     conflictstyle = zdiff3
