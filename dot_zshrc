@@ -96,34 +96,26 @@ else
   export EDITOR='nvim'
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 DEFAULT_USER="hegazy"
-export PATH="/opt/homebrew/opt/ruby/bin:/Users/hegazy/Library/Android/sdk/platform-tools:$PATH"
+
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"
 # Secrets are loaded from ~/.zsh_secrets
 [ -f ~/.zsh_secrets ] && source ~/.zsh_secrets
 export ANDROID_SDK_HOME="/Users/hegazy/Library/Android/sdk"
 export ANDROID_HOME=ANDROID_SDK_HOME
+export PATH="/opt/homebrew/opt/ruby/bin:$ANDROID_SDK_HOME/platform-tools:$PATH"
+export PATH="/Applications/Android Studio.app/Contents/MacOS:$PATH"
+# Find your latest build-tools version
+BUILD_TOOLS=$(ls -1 $ANDROID_SDK_HOME/build-tools | sort -V | tail -1)
+export PATH="$HOME/Library/Android/sdk/build-tools/$BUILD_TOOLS:$PATH"
 
 # Added by Windsurf
 export PATH="/Users/hegazy/.codeium/windsurf/bin:$PATH"
 
-export PATH="/Applications/Android Studio.app/Contents/MacOS:$PATH"
-
 alias proxyon="adb shell settings put global http_proxy 10.0.2.2:8888"
 alias proxyoff="adb shell settings put global http_proxy :0"
 alias proxystatus="adb shell settings get global http_proxy"
+alias gcof="git branch --sort=-committerdate --format='%(refname:short)' | fzf --preview 'git log --color=always --oneline -n 20 {}' --preview-window=right:60% | xargs -r git checkout"
 
 # Ruby
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
@@ -131,39 +123,12 @@ if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
   export PATH=`gem environment gemdir`/bin:$PATH
 fi
 
-
-# iTerm2 Profile Switching Git Functions
-# Switch to light profile for better diff readability, preserving original colors
-git_diff_light() {
-    local original_profile="${ITERM_PROFILE:-Default}"
-    
-    # Switch to light profile
-    echo -e "\033]1337;SetProfile=Light\007"
-    
-    # Run git diff with delta (configured for light mode)
-    command git diff "$@"
-    
-    # Restore original profile
-    echo -e "\033]1337;SetProfile=$original_profile\007"
-}
-
-# Convenient aliases for light background git commands
-alias gdl='git_diff_light'
-
 . "$HOME/.local/bin/env"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
-#eval "$(starship init zsh)"
-
-alias gcof="git branch --sort=-committerdate --format='%(refname:short)' | fzf --preview 'git log --color=always --oneline -n 20 {}' --preview-window=right:60% | xargs -r git checkout"
-
 export PATH=~/.npm-global/bin:$PATH
-
-# Find your latest build-tools version
-BUILD_TOOLS=$(ls -1 $ANDROID_SDK_HOME/build-tools | sort -V | tail -1)
-export PATH="$HOME/Library/Android/sdk/build-tools/$BUILD_TOOLS:$PATH"
 
 # Added by Antigravity
 export PATH="/Users/hegazy/.antigravity/antigravity/bin:$PATH"
@@ -181,6 +146,8 @@ function y() {
 	rm -f -- "$tmp"
 }
 alias y='yazi'
+
+#eval "$(starship init zsh)"
 
 # oh-my-posh
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/theme.toml)"
