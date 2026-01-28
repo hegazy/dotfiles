@@ -76,12 +76,13 @@ plugins=(
   thefuck
   # custom
   zsh-autosuggestions
-  zsh-autocomplete
   fast-syntax-highlighting
+  zsh-autocomplete
 )
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 autoload -U compinit && compinit
+eval "$(brew shellenv)"
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
