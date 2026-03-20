@@ -115,10 +115,14 @@ export PATH="$HOME/Library/Android/sdk/build-tools/$BUILD_TOOLS:$PATH"
 # Added by Windsurf
 export PATH="/Users/hegazy/.codeium/windsurf/bin:$PATH"
 
+# My aliases
 alias proxyon="adb shell settings put global http_proxy 10.0.2.2:8888"
 alias proxyoff="adb shell settings put global http_proxy :0"
 alias proxystatus="adb shell settings get global http_proxy"
 alias gcof="git branch --sort=-committerdate --format='%(refname:short)' | fzf --preview 'git log --color=always --oneline -n 20 {}' --preview-window=right:60% | xargs -r git checkout"
+alias anim-slow='adb shell settings put global window_animation_scale 10.0 && adb shell settings put global transition_animation_scale 10.0 && adb shell settings put global animator_duration_scale 10.0'
+alias anim-off='adb shell settings put global window_animation_scale 0.0 && adb shell settings put global transition_animation_scale 0.0 && adb shell settings put global animator_duration_scale 0.0'
+alias anim-normal='adb shell settings put global window_animation_scale 1.0 && adb shell settings put global transition_animation_scale 1.0 && adb shell settings put global animator_duration_scale 1.0'
 
 # Ruby
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then

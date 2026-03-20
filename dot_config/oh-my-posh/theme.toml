@@ -20,8 +20,7 @@ final_space = true
     style = 'powerline'
 
   [[blocks.segments]]
-#template = ' {{ .UserName }}@{{ .HostName }} '
-    template = ' {{ if not (and (eq .UserName "hegazy") (hasPrefix .HostName "Mac")) }} {{ .UserName }}@{{ .HostName }} {{ end }} '
+    template = ' {{ if not (and (eq .UserName "hegazy") (hasPrefix .HostName "mymacbook")) }} {{ .UserName }}@{{ .HostName }} {{ end }} '
     foreground = '#100e23'
     powerline_symbol = ''
     background = '#ffffff'
