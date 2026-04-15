@@ -8,27 +8,28 @@
 	process = git-lfs filter-process
 	required = true
 [include]
-    path = /Users/hegazy/Developer/github/delta/themes.gitconfig
+  path = /Users/hegazy/Developer/github/delta/themes.gitconfig
 [core]
-    pager = delta
+  pager = delta
 
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 
 [delta]
-    #features = mirthful-willow
-    features = mellow-barbet
-    navigate = true  # use n and N to move between diff sections
-    #syntax-theme = 1337
-    #light = true
-    #dark = true
-    #side-by-side = true
+  #features = mirthful-willow
+  features = mellow-barbet
+  navigate = true  # use n and N to move between diff sections
+  #syntax-theme = 1337
+  #light = true
+  #dark = true
+  #side-by-side = true
 
 [merge]
-    conflictstyle = zdiff3
+  conflictstyle = zdiff3
 
 [push]
-    default = current
+  default = current
+  autoSetupRemote = true
 
 [branch]
 	sort = -committerdate
